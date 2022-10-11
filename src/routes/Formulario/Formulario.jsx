@@ -5,10 +5,11 @@ import { useContext } from 'react';
 import { CardContext } from '../../context/CardContext';
 import { postWeather } from '../../services';
 const Formulario = ()=> {
-  const {register, handleSubmit, formState:{errors}} = useForm();
+  const {register, handleSubmit, formState:{errors}, reset} = useForm();
   const {cardsColection, setCardsColection} = useContext(CardContext);
 
   const customSubmit = (data) =>{
+    reset();
     const {ciudad, latitud, longitud, image} = data;
     getWeather(latitud, longitud)
    .then(weather=>{
