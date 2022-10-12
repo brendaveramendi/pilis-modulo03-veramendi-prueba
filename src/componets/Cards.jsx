@@ -13,9 +13,6 @@ const Cards = ()=>{
 
     return (
         <div>
-
-        <h1>Hola desde Cards</h1>
-
         {cardsColection.map(card=>(
            <Card 
             key={card.id}

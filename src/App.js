@@ -1,13 +1,13 @@
 import './App.css';
 import { useEffect, useContext } from 'react';
-import { Routes, Route, Link} from 'react-router-dom';
+import { Routes, Route} from 'react-router-dom';
 import { getCards } from './services';
+import Navigation from './routes/Navigation/Navigation'
 import Home from './routes/Home/Home';
 import Formulario from './routes/Formulario/Formulario';
 import Inicio from './routes/Inicio/Inicio';
 import {CardContext} from './context/CardContext';
-
-
+//import AppLogo from './AppLogo.png'
 
 function App() {
   const {setCardsColection } = useContext(CardContext)
@@ -19,22 +19,26 @@ function App() {
 
     return (
     <>
-     <header>
-        <h1>App-Clima</h1>
-      <nav>
-        <ul>
-          <li><Link to='/'>Inicio</Link></li>
-          <li><Link to='/home'>Home</Link></li>
-          <li><Link to='/formulario'>Formulario</Link></li>
-        </ul>
+     {/* <header className='header'>
+      <nav className='nav-links-container'>
+        <Link className='logo-container' to='/'>
+          <img src={AppLogo} alt='Logo' className='logo'  />
+        </Link>
+        <div className='list-links'>
+          <Link className='nav-link' to='/'>Inicio</Link>
+          <Link className='nav-link' to='/home'>Home</Link>
+          <Link className='nav-link' to='/formulario'>Formulario</Link>
+        </div>
       </nav>
-    </header> 
+    </header>  */}
     <div className="App">
       <Routes>
-        <Route path='/' element={<Inicio />} />
-        <Route path='/home' element={<Home />} />  
-        <Route path='/formulario' element={<Formulario />} /> 
-      </Routes>
+        <Route path='/' element={<Navigation />} >  
+          <Route index element={<Home />} />  
+          <Route path='/inicio' element={<Inicio />} />
+          <Route path='/formulario' element={<Formulario />} /> 
+        </Route>
+       </Routes>
     </div>   
     </>
    
