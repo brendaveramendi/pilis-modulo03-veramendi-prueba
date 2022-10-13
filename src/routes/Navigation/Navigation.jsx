@@ -28,7 +28,7 @@ const Navigation = () => {
     <>
       <div  className='navigation'>
         <Link className='logo-container' to='/'>
-          <h3>Weather-App <WiSolarEclipse /></h3>
+          <h3>Weather-app <WiSolarEclipse /></h3>
         </Link>
         <div ref ={navRef} className='nav-links-container'>
          {currentUser ? (

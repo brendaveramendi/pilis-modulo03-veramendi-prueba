@@ -36,23 +36,20 @@ const Formulario = ()=> {
              className='form-input'
              {...register('ciudad',{required:true})}/>
             {errors.ciudad?.type === 'required' && <small>El campo no puede estar vacio</small>}
-          
             <input type="text"
              placeholder='Ingrese Latitud'
              className='form-input'
              {...register('latitud',{required:true})}/>
             {errors.latitud?.type === 'required' && <small>El campo no puede estar vacio</small>}
-        
             <input type="text"
              placeholder='Ingrese Longitud' 
              className='form-input'
              {...register('longitud',{required:true})}/>
             {errors.longitud?.type === 'required' && <small>El campo no puede estar vacio</small>}
-            
             <input type="url"
              alt='image'
              className='form-input'
-            placeholder='Url Imagen'{...register('image',{required:true})}/>
+            placeholder='Url Image'{...register('image',{required:true})}/>
             {errors.image?.type === 'required' && <small>El campo no puede estar vacio</small>}
             
           <button className='form-submit' type='submit'>Cargar Tarjeta</button>
