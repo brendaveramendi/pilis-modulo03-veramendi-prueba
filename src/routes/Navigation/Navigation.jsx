@@ -1,11 +1,16 @@
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useRef } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext';
-import logo from '../../assets/AppLogo.png';
+import {FaBars, FaTimes} from 'react-icons/fa'
+//import logo from '../../assets/AppLogo.png';
 import './Navigation.css';
 
 const Navigation = () => {
    const { currentUser, setCurrentUser } = useContext(UserContext);
+   const navRef = useRef();
+   const showNavbar = () =>{
+    navRef.current.classList.toggle("responsive-nav");
+   }
 
      useEffect(() => {
          const userStored = localStorage.getItem('currentUser')
@@ -21,11 +26,11 @@ const Navigation = () => {
 
   return (
     <>
-      <div className='navigation'>
+      <div  className='navigation'>
         <Link className='logo-container' to='/'>
-          <img src={logo} alt='Logo' className='logo' />
+          <h3>Logo</h3>
         </Link>
-        <div className='nav-links-container'>
+        <div ref ={navRef} className='nav-links-container'>
          {currentUser ? (
             <Link className='nav-link' to='/'>
               Home
@@ -50,7 +55,14 @@ const Navigation = () => {
               Iniciar Sesión
             </Link>
           )}
+          <button className='nav-btn nav-close-btn' onClick={showNavbar}>
+            <FaTimes />
+          </button>
+         
         </div>
+        <button className='nav-btn'>
+        <FaBars  onClick={showNavbar}/>
+        </button>
       </div>
       <Outlet />
     </>

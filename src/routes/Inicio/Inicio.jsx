@@ -3,6 +3,7 @@
  import { useForm } from 'react-hook-form';
  import { useNavigate } from 'react-router-dom';
  import { UserContext } from '../../context/UserContext';
+ import './Inicio.css'
 
 
  function Inicio() {
@@ -16,11 +17,12 @@
      navigate('/')
    }
    return (
-     <div >
-     <span>Ingresa con tu usuario y contraseña</span>
-     <form onSubmit={handleSubmit(onSubmit)}>
-       <input
+     <div className='form-container'>
+       <form className='form' onSubmit={handleSubmit(onSubmit)}>
+         <span className='form-title'>Bienvenido</span>
+      <input
          type="text"
+         className='form-input'
          placeholder='Nombre de usuario'
          {...register('username', {
              required : 'Debe ingresar su nombre de usuario'
@@ -28,8 +30,10 @@
          )
        } />
        <p>{errors.username?.message}</p>
-       <input
+      
+      <input
          type='password'
+         className='form-input'
          placeholder='Contraseña'
          {...register(
              'password',
@@ -39,10 +43,11 @@
            )
          }
       />
-       <p>{errors.password?.message}</p>
-        <button type='submit'>Iniciar Sesión</button>
+         <p>{errors.password?.message}</p>
+       
+        <button type='submit' className='form-submit'>Iniciar Sesión</button>
      </form>
-   </div>
+    </div>
    )
  }
 
