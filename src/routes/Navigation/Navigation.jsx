@@ -2,7 +2,7 @@ import { useContext, useEffect, useRef } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext';
 import {FaBars, FaTimes} from 'react-icons/fa'
-//import logo from '../../assets/AppLogo.png';
+import {WiSolarEclipse} from 'react-icons/wi'
 import './Navigation.css';
 
 const Navigation = () => {
@@ -28,7 +28,7 @@ const Navigation = () => {
     <>
       <div  className='navigation'>
         <Link className='logo-container' to='/'>
-          <h3>Logo</h3>
+          <h3>Weather-App <WiSolarEclipse /></h3>
         </Link>
         <div ref ={navRef} className='nav-links-container'>
          {currentUser ? (
